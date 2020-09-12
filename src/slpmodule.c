@@ -22,6 +22,8 @@
 #include "config.h"
 #endif
 
+#define PY_SSIZE_T_CLEAN
+
 #include <slp.h>
 #include <Python.h>
 
@@ -825,16 +827,25 @@ static PyMethodDef slp_methods[] = {
 
 # define ADD_INT_VAR(__m, __n, __v) \
 	do { \
-		PyObject *__o = PyInt_FromLong((long)(__v)); \
+		PyObject *__o = PyLong_FromLong((long)(__v)); \
 		PyObject_SetAttrString(__m, __n, __o); \
 		Py_DECREF(__o); \
 	} while (0)
 
-PyMODINIT_FUNC initslp(void)
+static struct PyModuleDef slp =
+{
+    PyModuleDef_HEAD_INIT,
+    "slp", /* name of module */
+    NULL,  /* module documentation, may be NULL */
+    -1,    /* size of per-interpreter state of the module, or -1 if the module keeps state in global variables. */
+    slp_methods
+};
+
+PyMODINIT_FUNC PyInit_slp(void)
 {
 	PyObject *m;
 
-	m = Py_InitModule("slp", slp_methods);
+	m = PyModule_Create(&slp);
 	/* Now add some named variables */
 	ADD_INT_VAR(m, "SLP_LIFETIME_MAXIMUM", SLP_LIFETIME_MAXIMUM);
 	ADD_INT_VAR(m, "SLP_LIFETIME_DEFAULT", SLP_LIFETIME_DEFAULT);
@@ -858,5 +869,7 @@ PyMODINIT_FUNC initslp(void)
 	ADD_INT_VAR(m, "SLP_HANDLE_IN_USE", SLP_HANDLE_IN_USE);
 	ADD_INT_VAR(m, "SLP_TYPE_ERROR", SLP_TYPE_ERROR);
 	ADD_INT_VAR(m, "SLP_LAST_CALL", SLP_LAST_CALL);
+	
+	return m;
 }
 
