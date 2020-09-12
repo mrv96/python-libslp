@@ -369,3 +369,19 @@ operates.
 
 `configure' also accepts some other, not widely useful, options.  Run
 `configure --help' for more details.
+
+FAST AND BASIC VERSION:
+
+http://www.openslp.org/doc/html/UsersGuide/Installation.html
+Download OpenSLP tar
+tar -zxf openslp-x.x.x.tar.gz
+sudo c./configure
+sudo make
+sudo make install
+everything will be installed /usr/local
+
+autoreconf -fvi
+autoconf
+./configure
+make
+make install
