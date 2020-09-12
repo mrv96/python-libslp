@@ -1,3 +1,5 @@
+FORK COMPATIBLE WITH Python3
+
 PySLP: Python bindings for the OpenSLP API
 
 SLP (Service Location Protocol) is a framework for the discovery and selection
@@ -10,4 +12,6 @@ notably the functions never return an error code but raise a runtime exception
 on SLP API call failures.  The SLPFree() function is not implemented in the
 Python API at all for obvious reasons.
 
-Fork to use it with Python3
+N.B. Before to compile and install the project you must install OpenSLP:
+     http://www.openslp.org/doc/html/UsersGuide/Installation.html.
+     After the installation, the installed files should be in /usr/local
