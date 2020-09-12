@@ -9,3 +9,5 @@ to the Python nature there are some divergences from the RFC definitions. Most
 notably the functions never return an error code but raise a runtime exception
 on SLP API call failures.  The SLPFree() function is not implemented in the
 Python API at all for obvious reasons.
+
+Fork to use it with Python3
