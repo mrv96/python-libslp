@@ -378,7 +378,8 @@ tar -zxf openslp-x.x.x.tar.gz
 sudo ./configure --prefix /usr
 sudo make
 sudo make install
-everything will be installed /usr/local
+
+If ./configure is called with no --prefix option, at the end everything will be installed /usr/local
 
 autoreconf -fvi
 autoconf
