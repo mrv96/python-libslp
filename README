@@ -15,3 +15,4 @@ Python API at all for obvious reasons.
 N.B. Before to compile and install the project you must install OpenSLP:
      http://www.openslp.org/doc/html/UsersGuide/Installation.html.
      After the installation, the installed files should be in /usr/local
+     If you want files in /usr use: ./configure --prefix /usr
