@@ -375,7 +375,7 @@ FAST AND BASIC VERSION:
 http://www.openslp.org/doc/html/UsersGuide/Installation.html
 Download OpenSLP tar
 tar -zxf openslp-x.x.x.tar.gz
-sudo ./configure
+sudo ./configure --prefix /usr
 sudo make
 sudo make install
 everything will be installed /usr/local
