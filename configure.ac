@@ -9,7 +9,7 @@ AC_PROG_CC
 AC_PROG_RANLIB
 AC_HEADER_STDC
 
-PKG_CHECK_MODULES(Python, python >= 2.7,,)
+PKG_CHECK_MODULES(Python, python3 >= 3.0,,)
 AC_SUBST(Python_CFLAGS)
 AC_SUBST(Python_LIBS)
 
